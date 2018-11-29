@@ -9,6 +9,8 @@ services:
       - "6379:6379"
     volumes:
       - ./redis/data:/data
+    networks:
+      - elk
 
   jupyter-tutorial:
     build:
@@ -25,6 +27,8 @@ services:
       - /etc/localtime:/etc/localtime
     links:
       - elasticsearch
+    networks:
+      - elk
 
   elasticsearch:
     build:
